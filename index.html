@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O Poder da Sabedoria – Ebook Transformador</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+      background-color: #07142b;
+      color: #ffffff;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Utility classes */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #d4a017;
+      color: #07142b;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #e5b82c;
+    }
+
+    /* Section styles */
+    section {
+      padding: 4rem 0;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      background-image: url('silhouette.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(7, 20, 43, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #d4d7e5;
+    }
+
+    /* Benefits section */
+    .benefits {
+      background-color: #0f1f3a;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .benefit-item {
+      background-color: #11274d;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .benefit-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .benefit-item h3 {
+      color: #ffd369;
+      font-size: 1.2rem;
+      margin: 1rem;
+    }
+
+    .benefit-item p {
+      font-size: 0.95rem;
+      margin: 0 1rem 1.5rem;
+      color: #c3c7d7;
+    }
+
+    /* Para quem é */
+    .target {
+      background-color: #07142b;
+    }
+
+    .target .wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .target-image {
+      flex: 1;
+    }
+
+    .target-image img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .target-text {
+      flex: 1;
+    }
+
+    .target-text h2 {
+      color: #ffd369;
+      margin-bottom: 1rem;
+    }
+
+    .target-text ul {
+      list-style: none;
+      color: #c3c7d7;
+    }
+
+    .target-text li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .target-text li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #ffd369;
+      font-weight: bold;
+    }
+
+    /* Pillars section */
+    .pillars {
+      background-color: #0f1f3a;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .pillar-item {
+      padding: 1.5rem;
+    }
+
+    .pillar-icon {
+      margin-bottom: 0.5rem;
+      color: #ffd369;
+    }
+    .pillar-icon svg {
+      width: 48px;
+      height: 48px;
+      stroke: currentColor;
+    }
+
+    .pillar-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #ffd369;
+    }
+
+    .pillar-text {
+      font-size: 0.9rem;
+      color: #c3c7d7;
+    }
+
+    /* Offer section */
+    .offer {
+      background-color: #07142b;
+      position: relative;
+    }
+
+    .offer-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .offer-details {
+      flex: 2;
+    }
+
+    .offer-details h2 {
+      color: #ffd369;
+      margin-bottom: 1rem;
+    }
+
+    .offer-details .price {
+      font-size: 2rem;
+      margin: 1rem 0;
+      color: #ffd369;
+    }
+
+    .offer-details .old-price {
+      text-decoration: line-through;
+      color: #a0a8c0;
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+
+    .offer-cover {
+      flex: 1;
+      max-width: 300px;
+    }
+
+    .offer-cover img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    .offer-cta {
+      margin-top: 1.5rem;
+    }
+
+    /* Guarantee section */
+    .guarantee {
+      background-color: #0f1f3a;
+      text-align: center;
+    }
+
+    .guarantee img {
+      width: 160px;
+      margin-bottom: 1rem;
+    }
+
+    .guarantee h3 {
+      color: #ffd369;
+      margin-bottom: 0.5rem;
+    }
+
+    .guarantee p {
+      color: #c3c7d7;
+      margin-bottom: 1.5rem;
+    }
+
+    /* FAQ section */
+    .faq {
+      background-color: #07142b;
+    }
+
+    .faq h2 {
+      color: #ffd369;
+      margin-bottom: 1rem;
+    }
+
+    details {
+      background-color: #0f1f3a;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+    }
+
+    details summary {
+      font-weight: 600;
+      color: #ffd369;
+      cursor: pointer;
+      outline: none;
+    }
+
+    details p {
+      margin-top: 0.5rem;
+      color: #c3c7d7;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background-color: #0f1f3a;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .final-cta h2 {
+      color: #ffd369;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #07142b;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #7b84a9;
+    }
+
+    footer nav {
+      margin-bottom: 1rem;
+    }
+
+    footer nav a {
+      color: #7b84a9;
+      margin: 0 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .offer-wrapper, .target .wrapper {
+        flex-direction: column;
+      }
+      .offer-details {
+        order: 2;
+      }
+      .offer-cover {
+        order: 1;
+        max-width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content container">
+      <h1>O Poder da Sabedoria</h1>
+      <p>Transforme sua vida com os princípios eternos dos provérbios. Descubra paz interior, clareza mental e crescimento contínuo.</p>
+      <a href="https://pay.kiwify.com.br/XlntasS" class="btn">Quero aprender agora</a>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits" id="beneficios">
+    <div class="container">
+      <h2 style="text-align:center; color:#ffd369; margin-bottom:2rem;">Benefícios do Poder da Sabedoria</h2>
+      <div class="benefit-grid">
+        <div class="benefit-item">
+          <img src="road.png" alt="Clareza e decisão" />
+          <h3>Clareza nas decisões</h3>
+          <p>Tome decisões mais conscientes e assertivas, guiado por princípios milenares.</p>
+        </div>
+        <div class="benefit-item">
+          <img src="lake.png" alt="Paz emocional" />
+          <h3>Paz emocional</h3>
+          <p>Encontre serenidade e equilíbrio no seu dia a dia, mesmo nos momentos mais difíceis.</p>
+        </div>
+        <div class="benefit-item">
+          <img src="tree.png" alt="Crescimento contínuo" />
+          <h3>Crescimento contínuo</h3>
+          <p>Evolua constantemente em direção ao seu melhor eu, aplicando verdades eternas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Target Audience Section -->
+  <section class="target" id="publico">
+    <div class="container">
+      <div class="wrapper">
+        <div class="target-text">
+          <h2>Para quem é este livro?</h2>
+          <ul>
+            <li>Está cansado de agir no impulso e quer decisões mais sábias.</li>
+            <li>Deseja fortalecer sua fé e visão de futuro.</li>
+            <li>Quer aplicar princípios no trabalho, família e finanças.</li>
+            <li>Precisa de um guia prático, sem sermão — direto ao ponto.</li>
+          </ul>
+        </div>
+        <div class="target-image">
+          <!-- Mostre a capa completa do livro aqui para reforçar o produto -->
+          <img src="cover.png" alt="Capa completa do livro O Poder da Sabedoria" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars Section -->
+  <section class="pillars" id="pilares">
+    <div class="container">
+      <h2 style="text-align:center; color:#ffd369; margin-bottom:2rem;">O que você vai encontrar no livro</h2>
+      <div class="pillars-grid">
+        <div class="pillar-item">
+          <div class="pillar-icon">
+            <!-- Light bulb icon for Reflexões profundas -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Reflexões profundas</div>
+          <div class="pillar-text">Aprenda a interpretar a sabedoria de forma prática e relevante.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-icon">
+            <!-- Cog icon for Aplicação prática -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Aplicação prática</div>
+          <div class="pillar-text">Ferramentas e exercícios para aplicar na vida real.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-icon">
+            <!-- Book icon for Histórias inspiradoras -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Histórias inspiradoras</div>
+          <div class="pillar-text">Narrativas que ilustram princípios eternos de sabedoria.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-icon">
+            <!-- Sparkles icon for Meditações guiadas -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/>
+            </svg>
+          </div>
+          <div class="pillar-title">Meditações guiadas</div>
+          <div class="pillar-text">Momentos de introspecção para internalizar os ensinamentos.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offer Section -->
+  <section class="offer" id="oferta">
+    <div class="container">
+      <div class="offer-wrapper">
+        <div class="offer-details">
+          <h2>Oferta Especial</h2>
+          <p>Valor real do conteúdo: <span class="old-price">R$49,90</span><br />
+          Hoje por apenas:</p>
+          <div class="price">R$7,90</div>
+          <p>Pagamento seguro • Acesso imediato no seu e-mail</p>
+          <div class="offer-cta">
+            <a href="https://pay.kiwify.com.br/XlntasS" class="btn">Comprar agora</a>
+          </div>
+        </div>
+        <div class="offer-cover">
+          <img src="cover.png" alt="Capa do livro O Poder da Sabedoria" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guarantee Section -->
+  <section class="guarantee" id="garantia">
+    <div class="container">
+      <img src="seal.png" alt="Selo de garantia de 7 dias" />
+      <h3>Garantia incondicional de 7 dias</h3>
+      <p>Se nos primeiros 7 dias você sentir que o conteúdo não falou com sua alma, devolvemos 100% do valor investido. Sem burocracia, sem letras miúdas.</p>
+      <a href="https://pay.kiwify.com.br/XlntasS" class="btn">Quero experimentar sem risco</a>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2>Perguntas Frequentes</h2>
+      <details>
+        <summary>O livro é físico ou digital?</summary>
+        <p>O Poder da Sabedoria é um eBook digital. Você recebe o acesso imediatamente após a compra e pode ler no seu celular, tablet ou computador.</p>
+      </details>
+      <details>
+        <summary>Como recebo o eBook após a compra?</summary>
+        <p>Após a confirmação do pagamento, enviamos um e-mail com o link de acesso. Basta clicar e baixar para começar sua jornada de transformação.</p>
+      </details>
+      <details>
+        <summary>Preciso ter conhecimento bíblico prévio?</summary>
+        <p>Não! Este material foi criado para todos que buscam sabedoria, independentemente do nível de conhecimento sobre provérbios.</p>
+      </details>
+      <details>
+        <summary>Posso comprar para presentear alguém?</summary>
+        <p>Sim! Basta utilizar o e-mail da pessoa presenteada no momento da compra ou repassar o link após receber.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <h2>Pronto para transformar sua vida?</h2>
+    <p>Uma nova jornada de sabedoria começa com um simples passo. Garanta já o seu exemplar e sinta a diferença.</p>
+    <a href="https://pay.kiwify.com.br/XlntasS" class="btn">Eu quero agora</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <nav>
+      <a href="#beneficios">Benefícios</a> •
+      <a href="#publico">Para quem é</a> •
+      <a href="#pilares">Conteúdo</a> •
+      <a href="#oferta">Oferta</a> •
+      <a href="#faq">FAQ</a>
+    </nav>
+    <p>© O Poder da Sabedoria. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
